@@ -18,7 +18,7 @@
 
 # git add .
 
-# git commit -m "sla"
+# git commit -m "hmm"
 
 # git push
 
