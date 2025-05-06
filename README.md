@@ -35,7 +35,7 @@ A API estará disponível em `http://localhost:5000`.
 
 ### 5. Exemplos de uso
 
-Veja o arquivo `App/req.http` para exemplos de requisições HTTP.
+Veja o arquivo `req.http` para exemplos de requisições HTTP.
 
 ## Rotas
 
