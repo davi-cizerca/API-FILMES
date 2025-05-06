@@ -5,7 +5,6 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-# Configuração do banco de dados local
 try:
     conn = psycopg2.connect("dbname=azar user=postgres password=3f@db host=164.90.152.205 port=80")
     print("Conexão com banco de dados local estabelecida com sucesso")
@@ -13,7 +12,6 @@ except Exception as e:
     print("Erro ao conectar ao banco de dados local:", e)
     exit(1)
 
-# Criação da tabela se não existir
 cursor = conn.cursor()
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS filmes (
@@ -49,7 +47,6 @@ def listarFilmes():
 @app.route("/filmes/<titulo>", methods=["GET"])
 def buscarFilme(titulo):
     """Busca um filme primeiro no banco local, depois no OMDb"""
-    # 1. Primeiro, tenta buscar no banco de dados local
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM filmes WHERE titulo ILIKE %s', (f'%{titulo}%',))
     
@@ -66,14 +63,12 @@ def buscarFilme(titulo):
             "fonte": "banco_local"
         })
     
-    # 2. Se não encontrou no banco local, busca na API OMDb
     print(f"Buscando filme '{titulo}' no OMDb...")
-    API_KEY = "1a8427f2"  # Chave OMDb fornecida pelo usuário
+    API_KEY = "1a8427f2" 
     response = requests.get(f"http://www.omdbapi.com/?t={titulo}&apikey={API_KEY}")
     dados = response.json()
     
     if dados.get("Response") == "True":
-        # 3. Salva os dados no banco local para consultas futuras
         cursor.execute('''
             INSERT INTO filmes (titulo, ano, tipo, poster)
             VALUES (%s, %s, %s, %s)
