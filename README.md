@@ -20,12 +20,12 @@ git clone https://github.com/davi-cizerca/API-FILMES
 cd API-FILMES
 ```
 
-### 3. Configuração da API OMDb
+### 2. Configuração da API OMDb
 
 Obtenha uma chave gratuita em: https://www.omdbapi.com/apikey.aspx
 No código, substitua o valor da variável `API_KEY` pela sua chave OMDb.
 
-### 4. Executando a API
+### 3. Executando a API
 
 ```bash
 python App/database.py
@@ -33,7 +33,7 @@ python App/database.py
 
 A API estará disponível em `http://localhost:5000`.
 
-### 5. Exemplos de uso
+### 4. Exemplos de uso
 
 Veja o arquivo `req.http` para exemplos de requisições HTTP.
 
