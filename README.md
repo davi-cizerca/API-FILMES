@@ -12,24 +12,12 @@ Este projeto é uma API RESTful para consulta e cache de informações de filmes
 
 ## Como usar
 
-### 1. Configuração do Banco de Dados
-
-Crie um banco de dados PostgreSQL e um usuário com permissões adequadas.
-**Importante:** Não coloque informações sensíveis (usuário, senha, host) diretamente no código ou na documentação.
-Utilize variáveis de ambiente ou arquivos de configuração ignorados pelo Git.
-
-Exemplo de string de conexão (NÃO USE NO CÓDIGO):
-```
-postgresql://usuario:senha@host:porta/nome_do_banco
-```
-
-### 2. Instalação
+### 1. Instalação
 
 Clone o repositório e instale as dependências:
 ```bash
-git clone <url-do-repositorio>
-cd api-de-DWIII
-pip install -r requirements.txt
+git clone https://github.com/davi-cizerca/API-FILMES
+cd API-FILMES
 ```
 
 ### 3. Configuração da API OMDb
@@ -63,14 +51,4 @@ Veja o arquivo `App/req.http` para exemplos de requisições HTTP.
 - `POST /filmes/limpar`  
   Limpa todo o cache de filmes.
 
-## Segurança
-
-- **Nunca exponha informações sensíveis** (usuário, senha, host do banco, chave OMDb) em arquivos públicos ou no repositório.
-- Use variáveis de ambiente ou arquivos `.env` (adicionados ao `.gitignore`) para armazenar dados sensíveis.
-
-## Licença
-
-Este projeto é apenas para fins educacionais.
-
 ---
-
